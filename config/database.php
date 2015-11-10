@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => '127.0.0.1',
             'database'  => 'Correo',
             'username'  => 'root',
             'password'  => '123456',
@@ -62,7 +62,7 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
             'strict'    => false,
-            'port'      => '8889',
+            //'port'      => '6379',
         ],
 
         'pgsql' => [

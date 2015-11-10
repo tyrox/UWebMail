@@ -1,4 +1,7 @@
 <?PHP
-class Usuario extends Eloquent {
-	
+class Usuario extends Model {
+
+	protected $table = 'correo';
+	public $timestamps = false;
+
 }
