@@ -43,9 +43,9 @@ public function post_register()
 		return Redirect::back()->withErrors($validar);
 	}
 	else {
-		return View::make('register')->with('datos', Input::all());
+		return View('index');
 	}
-	return View::make('register');
+	
 }
 }
 

@@ -33,7 +33,7 @@
                                         <p>Full name: {!!$datos->name!!}</p>
                                         <p>User name: {!!$datos->user!!}</p>
                                         <p>Email: {!!$datos->email!!}</p>
-                                        <p>Password: {!!$datos->password!!}</p>
+                                        <p>Password: {!!Hash::make($datos->password)!!}</p>
 
                                     @else
                                         {!!Form::open(array('method' => 'POST', 'url' => 'register'))!!}

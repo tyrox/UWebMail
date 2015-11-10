@@ -13,8 +13,9 @@ class Ucontroller extends Controller
 
 public function index() 
 {
-	$usuarios = User::all();
-	return View::make('index')->with('usuarios', $usuarios);
+	//$usuarios = User::all();
+	return View('index');
+	//->with('usuarios', $usuarios);
 } 
 
 public function get_register()
