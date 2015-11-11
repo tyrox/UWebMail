@@ -37,6 +37,15 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    //protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token'];
+    public static function isLogged() {
+        if (Session::has('Id')) {
+            # code...
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 }

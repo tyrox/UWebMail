@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Auth\Authenticatable;
 use View;
+use Mail;
 use Redirect;
 use Input;
 use Validator;
@@ -43,6 +45,29 @@ public function post_register()
 		return Redirect::back()->withErrors($validar);
 	}
 	else {
+		//se crea nuevo usuario y se agrega a la base de datos
+		$usuario = new User;
+
+		$usuario->Name = Input::get('name');
+		$usuario->User = Input::get('user');
+		$usuario->email = Input::get('email');
+		$usuario->Password = Input::get('password');
+
+		/*$datos= array(
+			'name'=> Input::get('name'),
+			'email'=> 'tyron.js@gmail.com',
+			'subject'=> 'Suscription UWebMail',
+			'msj'=> 'Thank you!
+					Welcome to our WebMail.',
+			);
+			*/
+		//$usuario->save();
+		Mail::send('email.test', ['name'=>'Byron'], function($message){
+			$message->from('tyrox@live.com', 'Tyrox');
+
+			$message->to(Input::get('email'))->subject('Suscription');
+			//$message->to('tyron.js@gmail.com', 'some guy')->subject('Suscription');
+		});
 		return View('index');
 	}
 	
