@@ -53,19 +53,24 @@ public function post_register()
 		$usuario->email = Input::get('email');
 		$usuario->Password = Input::get('password');
 
-		/*$datos= array(
-			'name'=> Input::get('name'),
+		$datos= array(
+			'name'=> 'name',
 			'email'=> 'tyron.js@gmail.com',
 			'subject'=> 'Suscription UWebMail',
-			'msj'=> 'Thank you!
+			'msj'=> 'Thank you! \n
 					Welcome to our WebMail.',
 			);
-			*/
+		$message = null;
+		$fromEmail = 'tyrox@live.com';
+		$fromName = 'Soy tu padre';	
 		//$usuario->save();
-		Mail::send('email.test', ['name'=>'Byron'], function($message){
-			$message->from('tyrox@live.com', 'Tyrox');
+		Mail::send('email.test', ['name'=>'Byron'], function($message) use ($fromName, $fromEmail)
+		{
+			$message->to($fromEmail, $fromName);
+			$message->from($fromEmail, $fromName);
+			$message->subject('Nuevo msj de contacto');
 
-			$message->to(Input::get('email'))->subject('Suscription');
+			//$message->to(Input::get('email'))->subject('Suscription');
 			//$message->to('tyron.js@gmail.com', 'some guy')->subject('Suscription');
 		});
 		return View('index');

@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'payacson@gmail.com', 'name' => 'SOY TU PADRE'],
+    'from' => ['address' => null, 'name' => null],
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_USERNAME', 'Turionx2'),
+    'password' => env('MAIL_PASSWORD', 'Turionx2'),
 
     /*
     |--------------------------------------------------------------------------
